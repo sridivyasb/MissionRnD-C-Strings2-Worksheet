@@ -1,4 +1,4 @@
-/*
+﻿/*
 OVERVIEW: Given a string, Count the number of consonants and vowels and copy them to 'consonants' and 'vowels' respectively
 Notes : Neglect Space and Other Symbols .Consider Capital Letters too
 
@@ -17,10 +17,27 @@ Output: consonants should be ??,vowels should be ??
 NOTES: Don't create new string , Dont return anything ,you have been given two pointers ,copy values into those .
 */
 
-#include <stddef.h>
+#include "stddef.h"
 
 
 void count_vowels_and_consonants(char *str,int *consonants, int *vowels){
-
+	if (str == NULL)
+	{
+		*consonants = 0;
+		*vowels = 0;
+		return;
+	}
+	int i = 0;
+	int consonantsCount = 0, vowelCount = 0;
+	while (str[i])
+	{
+		if (str[i] == 'A' || str[i] == 'E' || str[i] == 'I' || str[i] == 'O' || str[i] == 'U' || str[i] == 'a' || str[i] == 'e' || str[i] == 'i' || str[i] == 'o' || str[i] == 'u')
+			vowelCount++;
+		else if (str[i] >= 'a'&& str[i] <= 'z' || str[i] >= 'A'&&str[i] <= 'Z')
+			consonantsCount++;
+		i++;
+	}
+	*vowels = vowelCount;
+	*consonants = consonantsCount;
 
 }
